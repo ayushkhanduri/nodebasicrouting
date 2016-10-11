@@ -17,3 +17,8 @@ footer
   padding-top: 10px;
   overflow: auto;
 }
+ #editor {
+        position: absolute;
+        width: 500px;
+        height: 400px;
+    }

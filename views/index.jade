@@ -6,17 +6,25 @@ block content
       h1 What up?
       p i am tripping balls you faggot son of a bitch
       a.btn.btn-primary.btn-lg(href="") Learn more &raquo;
+  button.btn.btn-primary.btn-sm(onclick = "display()") Run
   .container
     .row
-      .col-md-4
-        h2 About us
-        p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        a.btn.btn-default(href="#") View Details
-      .col-md-4
-        h2 Get in touch
-        p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        a.btn.btn-default(href="#") View Details      
-      .col-md-4
-        h2 Services
-        p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        a.btn.btn-default(href="#") View Details                
+      .col-md-5
+        div(id="editor") 
+          script(src="src-min-noconflict/ace.js" type="text/javascript" charset="utf-8") 
+                
+      .col-md-6(style ="margin-left:30px;")
+        iframe(id="frame" srcdoc="" width="100%" height="100%")
+        script.
+          var editor = ace.edit("editor"); 
+          editor.setTheme("ace/theme/monokai");
+          editor.getSession().setMode("ace/mode/javascript");
+          editor.getSession().setMode("ace/mode/html"); 
+          function display()
+          {
+            var fr = document.getElementById("frame");
+            var editvalue= editor.getValue();
+            fr.srcdoc = editvalue;             
+          }
+          
+                       
