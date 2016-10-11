@@ -4,3 +4,6 @@ eg
 
 /users/12 => User 12
 
+added node mailer for sending mail
+
+added ace editor for code editing online
